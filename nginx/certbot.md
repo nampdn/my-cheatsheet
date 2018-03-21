@@ -14,5 +14,5 @@ sudo certbot --authenticator webroot --installer nginx
 
 ### Non-webroot:
 ```
-sudo certbot --authenticator standalonee --installer nginx --pre-hook "service nginx stop" --post-hook "service nginx start"
+sudo certbot --authenticator standalone --installer nginx --pre-hook "service nginx stop" --post-hook "service nginx start"
 ```
