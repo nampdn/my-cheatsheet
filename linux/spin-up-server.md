@@ -45,38 +45,38 @@ sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/to
 ## Install Node Version Manager (NodeJS):
 ```bash
 # Via CURL
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+demo$ curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
 # Or via WGET
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
+demo$ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
 
 # Add PATH to .zshrc
-vim ~/.zshrc
+demo$ vim ~/.zshrc
 
 # At the end of the file add:
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Install node v9:
-nvm install 9
+demo$ nvm install 9
 
 # Install yarn:
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt-get update && sudo apt-get install yarn
+demo$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+demo$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+demo$ sudo apt-get update && sudo apt-get install yarn
 ```
 
 
 ## Install Docker:
 ```bash
 # Install docker engince ce
-wget -nv -O - https://get.docker.com/ | sh
+demo$ wget -nv -O - https://get.docker.com/ | sh
 
 # Add current user to docker group
-sudo usermod -aG docker demo
+demo$ sudo usermod -aG docker demo
 
 # Install docker-compose
-sudo curl -L https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-docker-compose --version
+demo$ sudo curl -L https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+demo$ sudo chmod +x /usr/local/bin/docker-compose
+demo$ docker-compose --version
 ```
