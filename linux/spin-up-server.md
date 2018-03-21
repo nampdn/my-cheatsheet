@@ -71,6 +71,12 @@ sudo apt-get update && sudo apt-get install yarn
 ```bash
 # Install docker engince ce
 wget -nv -O - https://get.docker.com/ | sh
+
 # Add current user to docker group
 sudo usermod -aG docker demo
+
+# Install docker-compose
+sudo curl -L https://github.com/docker/compose/releases/download/1.20.0/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+docker-compose --version
 ```
