@@ -25,6 +25,13 @@ ssh-keygen
 # Copy local public key to server
 local$
 ssh-copy-id demo@SERVER_IP_ADDRESS
+# or with specific <port>
+ssh-copy-id demo@SERVER_IP_ADDRESS -p<port>
+
+# You can now SSH to remote server from local without enter any credentials
+ssh demo@SERVER_IP_ADDRESS
+# or with specific <port>
+ssh demo@SERVER_IP_ADDRESS -p<port>
 ```
 
 * Update package:
