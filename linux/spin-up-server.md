@@ -56,10 +56,16 @@ vim ~/.zshrc
 # At the end of the file add:
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+# Install node v9:
+nvm install 9
 ```
 
 
 ## Install Docker:
 ```bash
+# Install docker engince ce
 wget -nv -O - https://get.docker.com/ | sh
+# Add current user to docker group
+sudo usermod -aG docker demo
 ```
