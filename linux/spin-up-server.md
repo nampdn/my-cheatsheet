@@ -69,6 +69,9 @@ vim ~/.zshrc
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
+# Reload bash/zsh to get environment path updated:
+source ~/.zshrc
+
 # Install node v9:
 demo$
 nvm install 9
