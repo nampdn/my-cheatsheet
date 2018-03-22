@@ -1,6 +1,7 @@
 # How to install Commitizen
 ```bash
-$ npm install -g commitizen
+# One line command
+$ npm install -g commitizen cz-conventional-changelog && echo '{ "path": "cz-conventional-changelog" }' > ~/.czrc
 ```
 
 #### Conventional commit messages as a global utility
