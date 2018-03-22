@@ -43,7 +43,7 @@ sudo apt-get update
 * Install required package:
 ```bash
 demo$
-sudo apt-get install -y wget curl zsh git build-essential
+sudo apt-get install -y wget curl zsh git htop build-essential
 ```
 
 
