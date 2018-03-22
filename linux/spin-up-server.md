@@ -111,3 +111,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 demo$
 docker-compose --version
 ```
+## What's next?
+* Install nginx with letsencrypt auto obtain: [docker-compose-letsencrypt-nginx-proxy-companion](https://github.com/evertramos/docker-compose-letsencrypt-nginx-proxy-companion)
+* Install Portainer: [docker-portainer-letsencrypt](https://github.com/evertramos/docker-portainer-letsencrypt)
+* Install Docker registry: [docker registry](https://docs.docker.com/registry/#basic-commands)
+* Install Verdaccio NPM registry: [Verdaccio](https://github.com/verdaccio/verdaccio)
