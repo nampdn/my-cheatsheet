@@ -85,6 +85,14 @@ You can now copy the image to the SD card, using the following command:
 ```
 sudo sh -c 'xzcat ~/Downloads/<image file> | sudo dd of=<drive address> bs=32m'
 ```
+or unxz it before burn: 
+```
+unxz ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img.xz
+```
+and use `ddrescue`
+```
+sudo ddrescue -v --force ubuntu-mate-16.04.2-desktop-armhf-raspberry-pi.img /dev/rdisk2
+```
 
 When finalised you will see the following message:
 
