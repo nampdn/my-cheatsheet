@@ -24,5 +24,5 @@ split -b 4294967295 - /Volumes/UNTITLED/install_macos_sierra.tgz.
 # How to extract:
 
 ```
-cat sda1.backup.tar.gz.* | tar xzvf
+cat sda1.backup.tar.gz.* | tar xzv
 ```
