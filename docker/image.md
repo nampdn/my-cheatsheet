@@ -1,5 +1,9 @@
 # Docker images related command
 
+## Prune the system to the beginning
+
+```docker system prune -a```
+
 ## Docker remove unused image:
 ```docker rmi $(docker images -aq --filter dangling=true)```
 
