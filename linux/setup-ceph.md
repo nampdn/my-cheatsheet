@@ -3,18 +3,18 @@
 1. Quick memorable script for initial CentOS server:
 
 * In any server do initial setup:
-```
+```bash
 curl https://scripts.barajs.dev/linux/new-centos.sh | bash -s
 ```
 
 * Prepare for ceph node:
-```
+```bash
 curl https://scripts.barajs.dev/ceph-centos.sh | bash -s -- "ceph-username" "ceph-password"
 ```
 
 2. Install `ceph-deploy` node:
 
-```
+```bash
 sudo yum install -y ceph-deploy
 ```
 
@@ -40,9 +40,14 @@ sudo yum install -y ceph-deploy
 
 * Prepare non-password user in a client:
 
-```
-echo -e 'Defaults:ubuntu !requiretty\nubuntu ALL = (root) NOPASSWD:ALL' | tee /etc/sudoers.d/ceph 
-chmod 440 /etc/sudoers.d/ceph
+```bash
+# Ubuntu Client:
+echo -e 'Defaults:ubuntu !requiretty\nubuntu ALL = (root) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/ceph 
+sudo chmod 440 /etc/sudoers.d/ceph
+
+# Centos Client:
+echo -e 'Defaults:cent !requiretty\ncent ALL = (root) NOPASSWD:ALL' | tee /etc/sudoers.d/ceph 
+chmod 440 /etc/sudoers.d/ceph 
 ```
 
 ## Create Ceph Block Device Storage
