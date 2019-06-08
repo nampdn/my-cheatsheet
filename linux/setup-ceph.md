@@ -36,6 +36,15 @@ sudo yum install -y ceph-deploy
 
 ## Mount Ceph FS
 
+## Install Ceph Admin
+
+* Prepare non-password user in a client:
+
+```
+echo -e 'Defaults:ubuntu !requiretty\nubuntu ALL = (root) NOPASSWD:ALL' | tee /etc/sudoers.d/ceph 
+chmod 440 /etc/sudoers.d/ceph
+```
+
 ## Create Ceph Block Device Storage
 
 ## Mount Ceph RBD
