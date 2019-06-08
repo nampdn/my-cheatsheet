@@ -2,7 +2,12 @@
 
 1. Quick memorable script for initial CentOS server:
 
-In any server do:
+* In any server do initial setup:
+```
+curl https://scripts.barajs.dev/linux/new-centos.sh | bash -s
+```
+
+* Prepare for ceph node:
 ```
 curl https://scripts.barajs.dev/ceph-centos.sh | bash -s -- "ceph-username" "ceph-password"
 ```
