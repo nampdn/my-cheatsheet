@@ -52,4 +52,14 @@ chmod 440 /etc/sudoers.d/ceph
 
 ## Create Ceph Block Device Storage
 
+```bash
+rbd create -s 1024 cephfs_data/store
+rbd ls cephfs_data/store
+rbd feature disable cephfs_data/store object-map fast-diff deep-flatten
+sudo rbd map cephfs_data/store
+sudo mkfs.xfs /dev/rbd0
+sudo mount /dev/rbd0 /mnt
+df -hT
+```
+
 ## Mount Ceph RBD
