@@ -20,9 +20,22 @@ sudo yum install -y ceph-deploy
 
 ## Install required dependencies
 
+
 ## Grant SSH access to all nodes
 
 ## Modify DNS hosts file
+
+## Ceph Deploy
+
+```bash
+mkdir ~/ceph
+
+cd ~/ceph
+
+ceph-deploy new node1
+
+ceph-deploy admin deployer node1 node2 node3
+```
 
 ## Create Ceph Monitor
 
