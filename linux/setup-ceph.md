@@ -33,21 +33,31 @@ mkdir ~/ceph
 cd ~/ceph
 
 ceph-deploy new node1
-
-ceph-deploy mon create-initial
-
-ceph-deploy admin deployer node1 node2 node3
-
-sudo chmod 644 /etc/ceph/ceph.client.admin.keyring
 ```
 
 ## Create Ceph Monitor
+```
+ceph-deploy mon create-initial
+```
 
 ## Transfer Ceph Admin Configuration
 
+```
+ceph-deploy admin deployer node1 node2 node3
+sudo chmod 644 /etc/ceph/ceph.client.admin.keyring
+```
+
 ## Create Ceph MGR
 
+```
+ceph-deploy mgr create node1
+```
+
 ## Create OSD
+
+```
+ceph-deploy osd create --data /dev/sdb node1
+```
 
 ## Create Ceph FileSystem
 
