@@ -34,7 +34,11 @@ cd ~/ceph
 
 ceph-deploy new node1
 
+ceph-deploy mon create-initial
+
 ceph-deploy admin deployer node1 node2 node3
+
+sudo chmod 644 /etc/ceph/ceph.client.admin.keyring
 ```
 
 ## Create Ceph Monitor
