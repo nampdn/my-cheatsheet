@@ -77,6 +77,12 @@ echo -e 'Defaults:cent !requiretty\ncent ALL = (root) NOPASSWD:ALL' | tee /etc/s
 chmod 440 /etc/sudoers.d/ceph 
 ```
 
+## Create Pool
+
+```
+ceph osd pool create data_pool 128
+```
+
 ## Create Ceph Block Device Storage
 
 ```bash
