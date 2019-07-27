@@ -176,3 +176,26 @@ Rollback all the configurations set before starting the step#1:
 # ceph tellosd.inj * ectargs '--osd_recovery_max_single_start 5'   // Default 5
 ```
 NOTE: If  an OSD is down due to Hardware error, then you can skip the step#1 in the above process and just use from step#2 to remove that specific OSD.
+
+
+## Setup Ubuntu application mount RBD
+
+### Setup Python
+### Setup Requirement Dependencies
+```
+
+# Ubuntu Client:
+ubuntu$ echo -e 'Defaults:ubuntu !requiretty\nubuntu ALL = (root) NOPASSWD:ALL' | sudo tee /etc/sudoers.d/ceph 
+ubuntu$ sudo chmod 440 /etc/sudoers.d/ceph
+ubuntu$ sudo apt-get install python-minimal
+
+dpl$ ceph-deploy install ubuntu-machine
+dpl$ ceph-deploy admin ubuntu-machine
+```
+
+### Create rbd & format & mount
+
+```
+rdb pool init <pool_name>
+
+```
