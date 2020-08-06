@@ -152,6 +152,7 @@ lxc storage volume set hdd-1 hdd-disk size 5529GB
 # LXD VM
 ```bash
 lxc init ubuntu:18.04 ceph-01 -p default -p ceph --vm
+lxc config set ceph-02 limits.memory 6GB # Set to 1GB memory per 1TB storage
 lxc storage volume attach hdd-1 hdd-disk ceph-01 sdb /dev/sdb
 lxc start ceph-01
 lxc console ceph-01 => ctrl+a q
@@ -211,5 +212,14 @@ Enter the ssh connection string for controller, username@<hostname or IP> or <ho
 
 ```# juju add-model openstack```
 
+
+## Optimize Ceph with OpenStack
+
+1. [The Dos and Don'ts for Ceph for OpenStack](https://ceph.io/planet/the-dos-and-donts-for-ceph-for-openstack/)
+2. [Expanding Ceph clusters with Juju](https://zeestrataca.com/posts/expanding-ceph-clusters-with-juju/)
+3. [Using libvirt with Ceph](https://documentation.suse.com/ses/6/html/ses-all/cha-ceph-libvirt.html)
+4. [Ceph OSD Journal](https://docs.ceph.com/docs/master/rados/configuration/osd-config-ref/)
+5. [HOW-TO How to integrate Ceph with OpenStack](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/)
+6. [Charm Ceph Mon](https://opendev.org/openstack/charm-ceph-mon)
 
 
