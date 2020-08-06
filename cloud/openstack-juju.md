@@ -185,17 +185,22 @@ lxc storage volume set hdd-1 hdd-disk size 5529GB
 
 ## LXD btrfs pool
 ```
-lxc storage create pool1 btrfs source=/dev/sdX
+export DISK_POOL=hdd-1
+export DISK_SIZE=465GB
+lxc storage create $DISK_POOL btrfs source=/dev/sdX && \
+lxc storage set $DISK_POOL size $DISK_SIZE && \
+lxc storage volume create $DISK_POOL hdd-disk --type=block && \
+lxc storage volume set $DISK_POOL hdd-disk size $DISK_SIZE && \
+lxc storage volume show $DISK_POOL hdd-disk
 ```
 
 # LXD VM
 ```bash
 export VM_NAME=ceph-osd-06-ctl
-export DISK_POOL=hdd-1
 lxc init ubuntu:18.04 $VM_NAME -p default -p ceph --vm
-lxc config set $VM_NAME limits.memory 6GB # Set to 1GB memory per 1TB storage
+lxc config set $VM_NAME limits.memory 6GB # Set to 1GB memory per 1TB storage, skip if nvme/ssd < 1TB
 lxc storage volume attach $DISK_POOL hdd-disk $VM_NAME sdb /dev/sdb
-lxc start $VM_NAME
+lxc start $VM_NAME && \
 lxc console $VM_NAME => ctrl+a q
 lxc shell $VM_NAME
 ```
