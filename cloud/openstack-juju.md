@@ -95,6 +95,16 @@ The container mybridge is accessible from the local network.
 
 ## https://askubuntu.com/questions/433842/how-to-resolve-error-machine-is-already-provisioned-in-manual-provision-set-up
 
+# SYSCTL LIMIT
+Edit file
+`sudo vim /etc/sysctl.conf`
+
+```
+fs.inotify.max_queued_events = 1048576
+fs.inotify.max_user_instances = 1048576
+fs.inotify.max_user_watches = 1048576
+```
+
 CLEAN UP JUJU AGENT
 ```bash
 sudo rm -rf /var/lib/juju
@@ -102,7 +112,6 @@ sudo rm -rf /lib/systemd/system/juju*
 sudo rm -rf /run/systemd/units/invocation:juju*
 sudo rm -rf /etc/systemd/system/juju*
 ```
-
 
 # LXD Ceph Profile
 ```bash
