@@ -148,14 +148,26 @@ devices:
 name: ceph
 ```
 
+# Disk Pool
 
-# LXD Storage
+Check disk label:
+
+```
+udevadm info --query=all --name=/dev/sda | grep ID_SERIAL
+```
+
+## LXD Storage
 ```bash
 zpool create -f hdd-1 /dev/sda
 lxc storage create hdd-1 zfs source=hdd-1
 lxc storage set hdd-1 size 5529GB
 lxc storage volume create hdd-1 hdd-disk --type=block
 lxc storage volume set hdd-1 hdd-disk size 5529GB
+```
+
+## LXD btrfs pool
+```
+lxc storage create pool1 btrfs source=/dev/sdX
 ```
 
 # LXD VM
@@ -235,3 +247,17 @@ Enter the ssh connection string for controller, username@<hostname or IP> or <ho
 8. [Ceph CRUSHMAP](https://docs.ceph.com/docs/mimic/rados/operations/crush-map/)
 
 
+## Miscellanous
+
+### Allow Ceph pool deletion: 
+```
+ceph tell mon.\* injectargs '--mon-allow-pool-delete=true'
+ceph osd pool rm test-pool test-pool --yes-i-really-really-mean-it
+```
+### Wipe a physical disk when something went wrong.
+
+Usually, when using `lxc storage create pool1 btrfs source=/dev/sdX` it will indicate noisy message, we can easly wipe all the thing on that disk.
+
+```
+wipefs -a /dev/sdb
+```
