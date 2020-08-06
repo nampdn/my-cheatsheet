@@ -178,9 +178,10 @@ network:
     version: 2
 ```
 
-# Copy ssh-key from juju controller to that machine
+## Add new machine to juju
 ```
 ssh-copy-id ubuntu@10.0.1.3
+juju add-machine ssh:ubuntu@10.0.2.2
 ```
 
 # Create Ceph Mon lxd
@@ -221,5 +222,6 @@ Enter the ssh connection string for controller, username@<hostname or IP> or <ho
 4. [Ceph OSD Journal](https://docs.ceph.com/docs/master/rados/configuration/osd-config-ref/)
 5. [HOW-TO How to integrate Ceph with OpenStack](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/)
 6. [Charm Ceph Mon](https://opendev.org/openstack/charm-ceph-mon)
+7. [Openstack Juju Official Document](https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/ussuri/install-openstack.html)
 
 
