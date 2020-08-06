@@ -232,5 +232,6 @@ Enter the ssh connection string for controller, username@<hostname or IP> or <ho
 5. [HOW-TO How to integrate Ceph with OpenStack](https://superuser.openstack.org/articles/ceph-as-storage-for-openstack/)
 6. [Charm Ceph Mon](https://opendev.org/openstack/charm-ceph-mon)
 7. [Openstack Juju Official Document](https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/ussuri/install-openstack.html)
+8. [Ceph CRUSHMAP](https://docs.ceph.com/docs/mimic/rados/operations/crush-map/)
 
 
