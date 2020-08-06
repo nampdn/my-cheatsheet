@@ -95,6 +95,24 @@ The container mybridge is accessible from the local network.
 
 ## https://askubuntu.com/questions/433842/how-to-resolve-error-machine-is-already-provisioned-in-manual-provision-set-up
 
+# LXD Default Profile (Bridge)
+
+```yaml
+config: {}
+description: Default LXD profile
+devices:
+  eth0:
+    name: eth0
+    nictype: bridged
+    parent: br1
+    type: nic
+  root:
+    path: /
+    pool: default
+    type: disk
+name: default
+```
+
 # SYSCTL LIMIT
 Edit file
 `sudo vim /etc/sysctl.conf`
@@ -172,12 +190,14 @@ lxc storage create pool1 btrfs source=/dev/sdX
 
 # LXD VM
 ```bash
-lxc init ubuntu:18.04 ceph-01 -p default -p ceph --vm
-lxc config set ceph-02 limits.memory 6GB # Set to 1GB memory per 1TB storage
-lxc storage volume attach hdd-1 hdd-disk ceph-01 sdb /dev/sdb
-lxc start ceph-01
-lxc console ceph-01 => ctrl+a q
-lxc shell ceph-01
+export VM_NAME=ceph-osd-06-ctl
+export DISK_POOL=hdd-1
+lxc init ubuntu:18.04 $VM_NAME -p default -p ceph --vm
+lxc config set $VM_NAME limits.memory 6GB # Set to 1GB memory per 1TB storage
+lxc storage volume attach $DISK_POOL hdd-disk $VM_NAME sdb /dev/sdb
+lxc start $VM_NAME
+lxc console $VM_NAME => ctrl+a q
+lxc shell $VM_NAME
 ```
 
 # Edit netplan static (if manuall ip)
