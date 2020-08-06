@@ -104,14 +104,14 @@ sudo rm -rf /etc/systemd/system/juju*
 ```
 
 
-# Ceph
+# LXD Ceph Profile
 ```bash
 # snap install lxd
-# zpool create -f hdd-1 /dev/sda
 # lxc profile create ceph
+# lxc profile edit ceph
 ```
 
-# PASTE
+## Config `ceph` profile
 ```yaml
 config:
   user.user-data: |
