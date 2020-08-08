@@ -270,6 +270,7 @@ Enter the ssh connection string for controller, username@<hostname or IP> or <ho
 6. [Charm Ceph Mon](https://opendev.org/openstack/charm-ceph-mon)
 7. [Openstack Juju Official Document](https://docs.openstack.org/project-deploy-guide/charm-deployment-guide/ussuri/install-openstack.html)
 8. [Ceph CRUSHMAP](https://docs.ceph.com/docs/mimic/rados/operations/crush-map/)
+9. [Ceph libvirt](https://docs.ceph.com/docs/master/rbd/libvirt/)
 
 
 ## Miscellanous
@@ -286,3 +287,13 @@ Usually, when using `lxc storage create pool1 btrfs source=/dev/sdX` it will ind
 ```
 wipefs -a /dev/sdb
 ```
+
+## Ceph
+
+### Authorizing Ceph Client
+
+### Ceph Pool
+
+### RBD QEMU
+
+### RBD SNAPSHOT
