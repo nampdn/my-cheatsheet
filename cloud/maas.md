@@ -170,6 +170,34 @@ You will need to install PostgreSQL on the machine where you want to keep the da
  sudo apt update -y
  sudo apt install -y postgresql
 ```
+
+Change Postgres listen addresses
+```bash
+vim /etc/postgresql/10/main/postgresql.conf
+```
+
+```conf
+#listen_addresses = 'localhost'
+```
+
+```bash
+vim /etc/postgresql/10/main/pg_hba.conf
+```
+
+```conf
+Modify this section:
+# IPv4 local connections:
+host    all             all             127.0.0.1/32            md5
+To this:
+# IPv4 local connections:
+host    all             all             0.0.0.0/0            md5
+```
+
+```
+sudo ufw allow 5432/tcp
+sudo systemctl restart postgresql
+```
+
 You want to make sure you have a suitable PostgreSQL user, which can be accomplished with the following command, where $MAAS_DBUSER is your desired database username, and $MAAS_DBPASS is the intended password for that username. Note that if you’re executing this step in a LXD container (as root, which is the default), you may get a minor error, but the operation will still complete correctly.
 ```
  sudo -u postgres psql -c "CREATE USER \"$MAAS_DBUSER\" WITH ENCRYPTED PASSWORD '$MAAS_DBPASS'"
