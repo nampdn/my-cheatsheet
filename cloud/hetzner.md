@@ -204,6 +204,17 @@ root@fi-hel-s1 ~ # cat virsh/network.xml
 </network>
 ```
 
+> virsh edit <domain>
+  
+```xml
+<interface type='network'>
+  <mac address='52:54:00:f4:2b:e2'/>
+  <source network='public'/>
+  <model type='virtio'/>
+  <address type='pci' domain='0x0000' bus='0x00' slot='0x08' function='0x0'/>
+</interface>
+```
+
 ### Libvirt mount block device
 
 ```xml
