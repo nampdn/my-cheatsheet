@@ -224,3 +224,67 @@ root@fi-hel-s1 ~ # cat virsh/network.xml
       <target dev='sdb' bus='virtio'/>
 </disk>
 ```
+
+
+## HAPROXY
+```console
+# lxc launch ubuntu:20.04 haproxy
+```
+
+On container:
+```console
+root@haproxy:~# vim /etc/haproxy/haproxy.cfg
+```
+
+Edit `haproxy.cfg` file:
+
+```HAProxy
+defaults
+        log     global
+        mode    http
+        option  httplog
+        option  dontlognull
+        option  forwardfor
+        option  http-server-close
+        timeout connect 5000
+        timeout client  50000
+        timeout server  50000
+        errorfile 400 /etc/haproxy/errors/400.http
+        errorfile 403 /etc/haproxy/errors/403.http
+        errorfile 408 /etc/haproxy/errors/408.http
+        errorfile 500 /etc/haproxy/errors/500.http
+        errorfile 502 /etc/haproxy/errors/502.http
+        errorfile 503 /etc/haproxy/errors/503.http
+        errorfile 504 /etc/haproxy/errors/504.http
+
+frontend www_frontend
+        bind *:80
+        acl openstack_dashboard hdr(host) -i vgm.cloud
+        acl ceph_radosgw hdr(host) -i s3.vgm.cloud
+
+        use_backend dashboard_cluster if openstack_dashboard
+        use_backend radosgw_cluster if ceph_radosgw
+
+backend dashboard_cluster
+        balance leastconn
+        http-request set-header X-Client-IP %[src]
+        server dashboard dashboard.vgm:80 check
+
+backend radosgw_cluster
+        balance leastconn
+        http-request set-header X-Client-IP %[src]
+        server radosgw s3.vgm:80 check
+```
+
+On Gateway machine (with public IP):
+```
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p tcp -i enp0s31f6 -d 95.216.67.44/32 --dport 80 -j DNAT --to-destination 10.1.0.198:80
+COMMIT
+```
+
+```console
+root@public-host ~ # ufw route allow in on enp0s31f6 to 10.1.0.198 port 80 proto tcp
+root@public-host ~ # lxc config device add haproxy myport80 proxy listen=tcp:0.0.0.0:80 connect=tcp:127.0.0.1:80
+```
