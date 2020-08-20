@@ -228,7 +228,11 @@ root@fi-hel-s1 ~ # cat virsh/network.xml
 
 ## HAPROXY
 ```console
-# lxc launch ubuntu:20.04 haproxy
+root@public-host:~# sudo apt-get update
+root@public-host:~# sudo apt-get install zfsutils-linux snapd
+root@public-host:~# snap install lxd
+root@public-host:~# lxd init
+root@public-host:~# lxc launch ubuntu:20.04 haproxy
 ```
 
 On container:
