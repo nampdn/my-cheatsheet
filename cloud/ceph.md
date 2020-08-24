@@ -1,5 +1,13 @@
 # Install Ceph Cloud Juju
-https://docs.ceph.com/docs/jewel/rados/operations/cache-tiering/
+
+## Offical Docs
+
+- [Hardware Recommendations](https://docs.ceph.com/docs/master/start/hardware-recommendations/)
+- [Cache Tiering](https://docs.ceph.com/docs/master/rados/operations/cache-tiering/)
+
+## Misc
+
+
 
 http://tacoisland.net/2019/01/06/hyperconverged-hybrid-storage-on-the-cheap-with-proxmox-and-ceph/
 
