@@ -1,5 +1,7 @@
 # Hetzner
 
+[KVM Bridge Hetzner](https://blog.adamretter.org.uk/bridged-kvm-virtualisation-at-hetzer/)
+
 ## Netplan
 
 ```yaml
