@@ -1,4 +1,7 @@
 # KVM passthrough Ubuntu 18.04
+https://www.youtube.com/watch?v=oSpGggczD2Y
+
+https://wiki.archlinux.org/title/PCI_passthrough_via_OVMF#Setting_up_IOMMU
 
 https://heiko-sieger.info/running-windows-10-on-linux-using-kvm-with-vga-passthrough/#About_keyboard_and_mouse
 
