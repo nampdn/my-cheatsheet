@@ -28,6 +28,18 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 ## Install minicuda
 
 ## Install Dependencies
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/cuda-ubuntu2004.pin
+sudo mv cuda-ubuntu2004.pin /etc/apt/preferences.d/cuda-repository-pin-600
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/${last_public_key}.pub
+sudo add-apt-repository "deb https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/ /"
+sudo apt-get update
+sudo apt-get install libcudnn8
+sudo apt-get install libcudnn8-dev
+```
+where ${last_public_key} is the last public key (file with .pub extension) published on https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/. (At May 9th 2022 when this post was edit, it was 3bf863cc.pub).
+
+[Source](https://stackoverflow.com/questions/66977227/could-not-load-dynamic-library-libcudnn-so-8-when-running-tensorflow-on-ubun)
 
 ```bash
 # Fix `jax` for TPU/GPU not found
