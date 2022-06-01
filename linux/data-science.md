@@ -25,6 +25,40 @@ sudo docker run --rm --gpus all nvidia/cuda:11.0.3-base-ubuntu20.04 nvidia-smi
 ```
 
 ## Build custom Docker image for jupyterlab
+
+```Dockerfile
+FROM nvidia/cuda:11.2.0-devel-ubuntu20.04
+
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update
+
+
+# declare the image name
+ENV IMG_NAME=11.2.0-devel-ubuntu20.04 \
+    # declare what jaxlib tag to use
+    # if a CI/CD system is expected to pass in these arguments
+    # the dockerfile should be modified accordingly
+    JAXLIB_VERSION=0.3.0
+
+RUN apt-get install -y wget libsndfile1 python3-pip sox libsox-fmt-mp3 zsh tmux nmon vim && rm -rf /var/lib/apt/lists/*
+RUN pip3 install numpy scipy six wheel jaxlib==${JAXLIB_VERSION}+cuda11.cudnn82 -f https://storage.googleapis.com/jax-releases/jax_releases.html jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_releases.html
+
+
+RUN wget \
+    https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh \
+    && mkdir /root/.conda \
+    && bash Miniconda3-latest-Linux-x86_64.sh -b \
+    && rm -f Miniconda3-latest-Linux-x86_64.sh
+RUN conda --version
+RUN conda install -c conda-forge jupyterlab pytorch torchvision gdown tqdm
+
+WORKDIR /content
+
+ENTRYPOINT ["jupyter-lab"]
+CMD ["--allow-root", "--ip=0.0.0.0"]
+```
+
 ## Install minicuda
 
 ## Install Dependencies
