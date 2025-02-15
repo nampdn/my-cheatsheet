@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Config URL="http://dangnhap.kt24h.mobi/Resource/Android/Epic_local/">
+<Config URL="https://raw.githubusercontent.com/nampdn/my-cheatsheet/refs/heads/master/stuff/config.xml">
   <Application VerText="Beta 1" VerCode="20180601" />
   <Resource VerText="Beta 1" VerCode="20180602" />
   <PackageType IsMiniPack="true" />
