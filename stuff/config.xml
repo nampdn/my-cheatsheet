@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Config URL="http://dangnhap.kt24h.mobi/Resource/Android/Epic_local/">
+  <Application VerText="Beta 1" VerCode="20180601" />
+  <Resource VerText="Beta 1" VerCode="20180602" />
+  <PackageType IsMiniPack="true" />
+  <AppLevelUp VerCode="22000" linkurl="https://play.google.com/store/apps/details?id=th.in.siamgame.ggplay.qjmu" isOpen="1" msg="Phiên bản hiện tại của bạn đã cũ, bấm OK để tải phiên bản mới nhất !" />
+  <Info serverip="60.191.140.106" voiceserverip="yy.qj.tianmashikong.com/yy/audiochat/" pushserverip="" serverlisturl="http://dangnhap.kt24h.mobi/ZTServerList/" serverlisturlsecond="http://dangnhap.kt24h.mobi/ZTGetUserServerId/" verifyaccountserverip="http://dangnhap.kt24h.mobi/" payserverip="http://dangnhap.kt24h.mobi/" bakurl="119.29.10.118/GATAnLogin/" versionurl="http://dangnhap.kt24h.mobi/Version/Androi/Epic/" updateclientname="MImini_2015_3_5_15_50.apk" serverid="1" gameid="local" login="1" lang="0" isolateresid="1" roleNum="0" deleteRole="1" loginport="4402" gameport="3004" isZip="1" IsAppVerify="0" IsInner="0" />
+  <Test TestURL="http://dangnhap.kt24h.mobi/Version/Androi/" />
+</Config>
